@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon lib/index.js --exec babel-node",
+    "dev": "nodemon lib/index.js --exec babel-node",
     "build": "babel lib -d dist",
-    "serve": "node index.js"
+    "start": "node index.js"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
