@@ -53,17 +53,16 @@ app.get('/:branch', function () {
 
             console.log(arrivals, positions);
             res.json({ response: { arrivals: JSON.parse(arrivals), positions: JSON.parse(positions) } });
-            _context.next = 21;
+            _context.next = 20;
             break;
 
           case 17:
             _context.prev = 17;
             _context.t2 = _context['catch'](0);
 
-            console.log(_context.t2);
             res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
 
-          case 21:
+          case 20:
           case 'end':
             return _context.stop();
         }
