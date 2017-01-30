@@ -23,6 +23,16 @@ var PORT = process.env.PORT || 8080;
 
 app.use((0, _cors2.default)());
 
+var keys = ['NRVQjcjTUF0I30EVFBDTqdWp%23', 'v%23v%23QTUNWp%23MpWR0wkj%23RhHTqVUM'];
+
+var arrivalsKey = keys[0];
+var positionsKey = keys[0];
+
+var catchKeyErrors = function catchKeyErrors(arrivals, positions) {
+  if (arrivals === 'incorrect key') arrivalsKey = arrivalsKey === keys[0] ? keys[1] : keys[0];
+  if (positions === 'incorrect key') positionsKey = positionsKey === keys[0] ? keys[1] : keys[0];
+};
+
 app.get('/:branch', function () {
   var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(req, res) {
     var _ref2, _ref3, arrivals, positions;
@@ -52,22 +62,25 @@ app.get('/:branch', function () {
             positions = _ref3[1];
 
             console.log(arrivals, positions);
+            console.log('Arrivals using key: ', arrivalsKey === keys[0] ? 0 : 1);
+            console.log('Positions using key: ', positionsKey === keys[0] ? 0 : 1);
+            catchKeyErrors(arrivals, positions);
             res.json({ response: { arrivals: JSON.parse(arrivals), positions: JSON.parse(positions) } });
-            _context.next = 20;
+            _context.next = 23;
             break;
 
-          case 17:
-            _context.prev = 17;
+          case 20:
+            _context.prev = 20;
             _context.t2 = _context['catch'](0);
 
             res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
 
-          case 20:
+          case 23:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 17]]);
+    }, _callee, this, [[0, 20]]);
   }));
 
   return function (_x, _x2) {
