@@ -28,9 +28,13 @@ var keys = ['NRVQjcjTUF0I30EVFBDTqdWp%23', 'v%23v%23QTUNWp%23MpWR0wkj%23RhHTqVUM
 var arrivalsKey = keys[0];
 var positionsKey = keys[0];
 
-var catchKeyErrors = function catchKeyErrors(arrivals, positions) {
-  if (arrivals === 'incorrect key') arrivalsKey = arrivalsKey === keys[0] ? keys[1] : keys[0];
-  if (positions === 'incorrect key') positionsKey = positionsKey === keys[0] ? keys[1] : keys[0];
+var swapKey = function swapKey(key) {
+  return key === keys[0] ? keys[1] : keys[0];
+};
+
+var swapKeyIfError = function swapKeyIfError(arrivals, positions) {
+  if (arrivals === 'incorrect key') arrivalsKey = swapKey(arrivalsKey);
+  if (positions === 'incorrect key') positionsKey = swapKey(positionsKey);
 };
 
 app.get('/:branch', function () {
@@ -43,12 +47,12 @@ app.get('/:branch', function () {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return (0, _apiRequest2.default)(req.params.branch, 'arribos');
+            return (0, _apiRequest2.default)(req.params.branch, 'arribos', arrivalsKey);
 
           case 3:
             _context.t0 = _context.sent;
             _context.next = 6;
-            return (0, _apiRequest2.default)(req.params.branch, 'posiciones');
+            return (0, _apiRequest2.default)(req.params.branch, 'posiciones', positionsKey);
 
           case 6:
             _context.t1 = _context.sent;
@@ -64,7 +68,7 @@ app.get('/:branch', function () {
             console.log(arrivals, positions);
             console.log('Arrivals using key: ', arrivalsKey === keys[0] ? 0 : 1);
             console.log('Positions using key: ', positionsKey === keys[0] ? 0 : 1);
-            catchKeyErrors(arrivals, positions);
+            swapKeyIfError(arrivals, positions);
             res.json({ response: { arrivals: JSON.parse(arrivals), positions: JSON.parse(positions) } });
             _context.next = 23;
             break;
