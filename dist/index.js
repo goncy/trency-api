@@ -14,6 +14,12 @@ var _apiRequest = require('./apiRequest');
 
 var _apiRequest2 = _interopRequireDefault(_apiRequest);
 
+var _swapKey = require('./swapKey');
+
+var _swapKey2 = _interopRequireDefault(_swapKey);
+
+var _constants = require('./constants');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -23,19 +29,8 @@ var PORT = process.env.PORT || 8080;
 
 app.use((0, _cors2.default)());
 
-var keys = ['NRVQjcjTUF0I30EVFBDTqdWp%23', 'v%23v%23QTUNWp%23MpWR0wkj%23RhHTqVUM'];
-
-var positionsKey = keys[0];
-var arrivalsKey = keys[1];
-
-var swapKey = function swapKey(key) {
-  return key === keys[0] ? keys[1] : keys[0];
-};
-
-var swapKeyIfError = function swapKeyIfError(arrivals, positions) {
-  if (arrivals === 'incorrect key') arrivalsKey = swapKey(arrivalsKey);
-  if (positions === 'incorrect key') positionsKey = swapKey(positionsKey);
-};
+var positionsKey = _constants.KEYS[0];
+var arrivalsKey = _constants.KEYS[1];
 
 app.get('/:branch', function () {
   var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(req, res) {
@@ -65,23 +60,27 @@ app.get('/:branch', function () {
             arrivals = _ref3[0];
             positions = _ref3[1];
 
-            swapKeyIfError(arrivals, positions);
+            // Swap key on error
+            if (arrivals === 'incorrect key') arrivalsKey = (0, _swapKey2.default)(arrivalsKey);
+            if (positions === 'incorrect key') positionsKey = (0, _swapKey2.default)(positionsKey);
+            // Return response
             res.json({ response: { arrivals: JSON.parse(arrivals), positions: JSON.parse(positions) } });
-            _context.next = 20;
+            _context.next = 21;
             break;
 
-          case 17:
-            _context.prev = 17;
+          case 18:
+            _context.prev = 18;
             _context.t2 = _context['catch'](0);
 
+            // Return error
             res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
 
-          case 20:
+          case 21:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 17]]);
+    }, _callee, this, [[0, 18]]);
   }));
 
   return function (_x, _x2) {
