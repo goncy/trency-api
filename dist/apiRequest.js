@@ -30,7 +30,7 @@ var apiRequest = function () {
               },
               qs: {
                 rnd: (0, _randomString2.default)(),
-                key: 'v%23v%23QTUNWp%23MpWR0wkj%23RhHTqVUM',
+                key: 'NRVQjcjTUF0I30EVFBDTqdWp%23',
                 ramal: branch
               }
             }));
