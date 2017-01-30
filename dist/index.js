@@ -59,7 +59,7 @@ app.get('/:branch', function () {
             _context.prev = 16;
             _context.t2 = _context['catch'](0);
 
-            res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde' });
+            res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
 
           case 19:
           case 'end':
