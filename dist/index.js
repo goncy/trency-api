@@ -14,11 +14,7 @@ var _apiRequest = require('./apiRequest');
 
 var _apiRequest2 = _interopRequireDefault(_apiRequest);
 
-var _swapKey = require('./swapKey');
-
-var _swapKey2 = _interopRequireDefault(_swapKey);
-
-var _constants = require('./constants');
+var _keys = require('./keys');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,8 +25,8 @@ var PORT = process.env.PORT || 8080;
 
 app.use((0, _cors2.default)());
 
-var positionsKey = _constants.KEYS[0];
-var arrivalsKey = _constants.KEYS[1];
+var positionsKey = _keys.KEYS[0];
+var arrivalsKey = _keys.KEYS[1];
 
 app.get('/:branch', function () {
   var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(req, res) {
@@ -61,8 +57,8 @@ app.get('/:branch', function () {
             positions = _ref3[1];
 
             // Swap key on error
-            if (arrivals === 'incorrect key') arrivalsKey = (0, _swapKey2.default)(arrivalsKey);
-            if (positions === 'incorrect key') positionsKey = (0, _swapKey2.default)(positionsKey);
+            if (arrivals === 'incorrect key') arrivalsKey = (0, _keys.swapKey)(arrivalsKey);
+            if (positions === 'incorrect key') positionsKey = (0, _keys.swapKey)(positionsKey);
             // Return response
             res.json({ response: { arrivals: JSON.parse(arrivals), positions: JSON.parse(positions) } });
             _context.next = 21;
