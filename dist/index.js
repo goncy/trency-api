@@ -37,27 +37,42 @@ var arrivalsKey = _constants.KEYS[1];
 
 app.get('/:branch', function () {
   var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(req, res) {
-    var _ref2, _ref3, arrivals, positions;
+    var cachedArrivals, cachedPositions, _ref2, _ref3, arrivals, positions;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
-            _context.next = 3;
+            // Check if this request is cached
+            cachedArrivals = (0, _cache.getCache)('arrivals_' + req.params.branch);
+            cachedPositions = (0, _cache.getCache)('positions_' + req.params.branch);
+
+            if (!(cachedArrivals && cachedPositions)) {
+              _context.next = 4;
+              break;
+            }
+
+            return _context.abrupt('return', res.json({ response: {
+                arrivals: JSON.parse(cachedArrivals),
+                positions: JSON.parse(cachedPositions) }
+            }));
+
+          case 4:
+            _context.prev = 4;
+            _context.next = 7;
             return (0, _api.apiRequest)(req.params.branch, 'arribos', arrivalsKey);
 
-          case 3:
+          case 7:
             _context.t0 = _context.sent;
-            _context.next = 6;
+            _context.next = 10;
             return (0, _api.apiRequest)(req.params.branch, 'posiciones', positionsKey);
 
-          case 6:
+          case 10:
             _context.t1 = _context.sent;
-            _context.next = 9;
+            _context.next = 13;
             return [_context.t0, _context.t1];
 
-          case 9:
+          case 13:
             _ref2 = _context.sent;
             _ref3 = _slicedToArray(_ref2, 2);
             arrivals = _ref3[0];
@@ -65,31 +80,31 @@ app.get('/:branch', function () {
 
 
             // Swap key on arrivals error and cache response on success
-            arrivals === 'incorrect key' ? arrivalsKey = (0, _keys.swapKey)(arrivalsKey) : (0, _cache.setCache)('arrivals', arrivals);
+            arrivals === 'incorrect key' ? arrivalsKey = (0, _keys.swapKey)(arrivalsKey) : (0, _cache.setCache)('arrivals_' + req.params.branch, arrivals);
             // Swap key on positions error and cache response on success
-            positions === 'incorrect key' ? positionsKey = (0, _keys.swapKey)(positionsKey) : (0, _cache.setCache)('positions', positions);
+            positions === 'incorrect key' ? positionsKey = (0, _keys.swapKey)(positionsKey) : (0, _cache.setCache)('positions_' + req.params.branch, positions);
 
             // Return response
             res.json({ response: {
-                arrivals: JSON.parse((0, _cache.getCache)('arrivals') || arrivals),
-                positions: JSON.parse((0, _cache.getCache)('positions') || positions) }
+                arrivals: JSON.parse(arrivals),
+                positions: JSON.parse(positions) }
             });
-            _context.next = 21;
+            _context.next = 25;
             break;
 
-          case 18:
-            _context.prev = 18;
-            _context.t2 = _context['catch'](0);
+          case 22:
+            _context.prev = 22;
+            _context.t2 = _context['catch'](4);
 
             // Return error
             res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
 
-          case 21:
+          case 25:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 18]]);
+    }, _callee, this, [[4, 22]]);
   }));
 
   return function (_x, _x2) {
