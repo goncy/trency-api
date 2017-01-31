@@ -6,9 +6,17 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
+var _memoryCache = require('memory-cache');
+
+var _memoryCache2 = _interopRequireDefault(_memoryCache);
+
 var _cors = require('cors');
 
 var _cors2 = _interopRequireDefault(_cors);
+
+var _compression = require('compression');
+
+var _compression2 = _interopRequireDefault(_compression);
 
 var _apiRequest = require('./apiRequest');
 
@@ -24,6 +32,7 @@ var app = (0, _express2.default)();
 var PORT = process.env.PORT || 8080;
 
 app.use((0, _cors2.default)());
+app.use((0, _compression2.default)());
 
 var positionsKey = _keys.KEYS[0];
 var arrivalsKey = _keys.KEYS[1];
@@ -56,29 +65,30 @@ app.get('/:branch', function () {
             arrivals = _ref3[0];
             positions = _ref3[1];
 
-            // Swap key on error
-            console.log('arrivals using key: ', arrivalsKey === _keys.KEYS[0] ? 0 : 1);
-            console.log('positions using key: ', positionsKey === _keys.KEYS[0] ? 0 : 1);
-            if (arrivals === 'incorrect key') arrivalsKey = (0, _keys.swapKey)(arrivalsKey);
-            if (positions === 'incorrect key') positionsKey = (0, _keys.swapKey)(positionsKey);
+            // Swap key on error and cache response on success
+            if (arrivals === 'incorrect key') arrivalsKey = (0, _keys.swapKey)(arrivalsKey);else if (!_memoryCache2.default.get('arrivals')) _memoryCache2.default.put('arrivals', arrivals, 10000);
+            if (positions === 'incorrect key') positionsKey = (0, _keys.swapKey)(positionsKey);else if (!_memoryCache2.default.get('positions')) _memoryCache2.default.put('positions', positions, 10000);
             // Return response
-            res.json({ response: { arrivals: JSON.parse(arrivals), positions: JSON.parse(positions) } });
-            _context.next = 23;
+            res.json({ response: {
+                arrivals: JSON.parse(_memoryCache2.default.get('arrivals') || arrivals),
+                positions: JSON.parse(_memoryCache2.default.get('positions') || positions) }
+            });
+            _context.next = 21;
             break;
 
-          case 20:
-            _context.prev = 20;
+          case 18:
+            _context.prev = 18;
             _context.t2 = _context['catch'](0);
 
             // Return error
             res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
 
-          case 23:
+          case 21:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 20]]);
+    }, _callee, this, [[0, 18]]);
   }));
 
   return function (_x, _x2) {
