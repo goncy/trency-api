@@ -21,6 +21,7 @@
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "memory-cache": "^0.1.6",
+    "random-useragent": "^0.3.1",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   }
