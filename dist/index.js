@@ -57,26 +57,28 @@ app.get('/:branch', function () {
             positions = _ref3[1];
 
             // Swap key on error
+            console.log('arrivals using key: ', arrivalsKey === _keys.KEYS[0] ? 0 : 1);
+            console.log('positions using key: ', positionsKey === _keys.KEYS[0] ? 0 : 1);
             if (arrivals === 'incorrect key') arrivalsKey = (0, _keys.swapKey)(arrivalsKey);
             if (positions === 'incorrect key') positionsKey = (0, _keys.swapKey)(positionsKey);
             // Return response
             res.json({ response: { arrivals: JSON.parse(arrivals), positions: JSON.parse(positions) } });
-            _context.next = 21;
+            _context.next = 23;
             break;
 
-          case 18:
-            _context.prev = 18;
+          case 20:
+            _context.prev = 20;
             _context.t2 = _context['catch'](0);
 
             // Return error
             res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
 
-          case 21:
+          case 23:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, this, [[0, 18]]);
+    }, _callee, this, [[0, 20]]);
   }));
 
   return function (_x, _x2) {
