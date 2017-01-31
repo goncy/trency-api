@@ -14,6 +14,10 @@ var _compression = require('compression');
 
 var _compression2 = _interopRequireDefault(_compression);
 
+var _helmet = require('helmet');
+
+var _helmet2 = _interopRequireDefault(_helmet);
+
 var _constants = require('./constants');
 
 var _api = require('./utils/api');
@@ -29,6 +33,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var app = (0, _express2.default)();
 var PORT = process.env.PORT || _constants.DEFAULT_PORT;
 
+app.use((0, _helmet2.default)());
 app.use((0, _cors2.default)());
 app.use((0, _compression2.default)());
 
