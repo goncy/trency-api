@@ -48,31 +48,33 @@ app.get('/:branch', function () {
             cachedPositions = (0, _cache.getCache)('positions_' + req.params.branch);
 
             if (!(cachedArrivals && cachedPositions)) {
-              _context.next = 4;
+              _context.next = 6;
               break;
             }
 
-            return _context.abrupt('return', res.json({ response: {
+            res.json({ response: {
                 arrivals: JSON.parse(cachedArrivals),
                 positions: JSON.parse(cachedPositions) }
-            }));
+            });
+            _context.next = 27;
+            break;
 
-          case 4:
-            _context.prev = 4;
-            _context.next = 7;
+          case 6:
+            _context.prev = 6;
+            _context.next = 9;
             return (0, _api.apiRequest)(req.params.branch, 'arribos', arrivalsKey);
 
-          case 7:
+          case 9:
             _context.t0 = _context.sent;
-            _context.next = 10;
+            _context.next = 12;
             return (0, _api.apiRequest)(req.params.branch, 'posiciones', positionsKey);
 
-          case 10:
+          case 12:
             _context.t1 = _context.sent;
-            _context.next = 13;
+            _context.next = 15;
             return [_context.t0, _context.t1];
 
-          case 13:
+          case 15:
             _ref2 = _context.sent;
             _ref3 = _slicedToArray(_ref2, 2);
             arrivals = _ref3[0];
@@ -89,22 +91,22 @@ app.get('/:branch', function () {
                 arrivals: JSON.parse(arrivals),
                 positions: JSON.parse(positions) }
             });
-            _context.next = 25;
+            _context.next = 27;
             break;
 
-          case 22:
-            _context.prev = 22;
-            _context.t2 = _context['catch'](4);
+          case 24:
+            _context.prev = 24;
+            _context.t2 = _context['catch'](6);
 
             // Return error
             res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
 
-          case 25:
+          case 27:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, this, [[4, 22]]);
+    }, _callee, this, [[6, 24]]);
   }));
 
   return function (_x, _x2) {
