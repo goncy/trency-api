@@ -9,6 +9,10 @@ var _requestPromise = require('request-promise');
 
 var _requestPromise2 = _interopRequireDefault(_requestPromise);
 
+var _randomUseragent = require('random-useragent');
+
+var _randomUseragent2 = _interopRequireDefault(_randomUseragent);
+
 var _methods = require('./methods');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -25,7 +29,8 @@ var apiRequest = exports.apiRequest = function () {
               url: 'https://trenes.sofse.gob.ar/v2_pg/' + (tipo === 'arribos' ? 'arribos' : 'mapas') + '/ajax_' + (tipo === 'arribos' ? 'arribos' : 'posiciones') + '.php?',
               headers: {
                 'Referer': 'http://trenes.mininterior.gov.ar/v2_pg/',
-                'Host': 'trenes.sofse.gob.ar'
+                'Host': 'trenes.sofse.gob.ar',
+                'User-Agent': _randomUseragent2.default.getRandom()
               },
               qs: {
                 rnd: (0, _methods.randomString)(),
