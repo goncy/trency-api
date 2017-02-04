@@ -3,4 +3,4 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var DEFAULT_PORT = exports.DEFAULT_PORT = 8080;
+var LINES_DATA = exports.LINES_DATA = [];
