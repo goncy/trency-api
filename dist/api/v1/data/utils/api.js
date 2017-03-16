@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.apiRequest = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _requestPromise = require('request-promise');
 
 var _requestPromise2 = _interopRequireDefault(_requestPromise);
@@ -14,6 +16,8 @@ var _randomUseragent = require('random-useragent');
 var _randomUseragent2 = _interopRequireDefault(_randomUseragent);
 
 var _methods = require('./methods');
+
+var _constants = require('../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26,12 +30,10 @@ var apiRequest = exports.apiRequest = function () {
         switch (_context.prev = _context.next) {
           case 0:
             return _context.abrupt('return', (0, _requestPromise2.default)({
-              url: 'https://trenes.sofse.gob.ar/v2_pg/' + (tipo === 'arribos' ? 'arribos' : 'mapas') + '/ajax_' + (tipo === 'arribos' ? 'arribos' : 'posiciones') + '.php?',
-              headers: {
-                'Referer': 'http://trenes.mininterior.gov.ar/v2_pg/',
-                'Host': 'trenes.sofse.gob.ar',
+              url: tipo === 'arribos' ? _constants.API_URLS.arrivals : _constants.API_URLS.positions,
+              headers: _extends({}, _constants.API_HEADERS, {
                 'User-Agent': _randomUseragent2.default.getRandom()
-              },
+              }),
               qs: {
                 rnd: (0, _methods.randomString)(),
                 ramal: branch,

@@ -71,10 +71,12 @@ var get = function () {
             positions === 'incorrect key' ? positionsKey = (0, _keys.swapKey)(positionsKey) : (0, _cache.setCache)('positions_' + req.params.branch, positions);
 
             // Return response
-            res.json({ response: {
+            res.json({
+              response: {
                 arrivals: JSON.parse(arrivals),
                 positions: JSON.parse(positions)
-              } });
+              }
+            });
             _context.next = 27;
             break;
 
@@ -83,7 +85,10 @@ var get = function () {
             _context.t2 = _context['catch'](6);
 
             // Return error
-            res.status(500).send({ error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde', detail: _context.t2 });
+            res.status(500).send({
+              error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde',
+              detail: _context.t2
+            });
 
           case 27:
           case 'end':

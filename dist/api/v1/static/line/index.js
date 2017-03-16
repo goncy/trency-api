@@ -14,7 +14,7 @@ var _get2 = _interopRequireDefault(_get);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var router = _express2.default.Router();
+var router = _express2.default.Router({ mergeParams: true });
 
 // ENDPOINTS
 router.route('/').get(_get2.default);
