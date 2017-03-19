@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "nodemon lib/index.js --exec babel-node",
     "build": "babel lib -d dist",
-    "start": "node index.js"
+    "start": "node index.js",
+    "doc": "apidoc -i lib/ -o docs/ && cd docs && live-server",
+    "postdoc": "git subtree push --prefix docs origin docs"
   },
   "devDependencies": {
+    "apidoc": "^0.17.5",
     "babel-cli": "^6.22.2",
     "babel-plugin-transform-async-to-generator": "^6.22.0",
     "babel-polyfill": "^6.22.0",
