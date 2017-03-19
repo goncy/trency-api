@@ -5,4 +5,4 @@ Instalación:
 `npm install`
 
 Documentación:
-`npm run doc`
+`npm run docs`
