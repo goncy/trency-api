@@ -7,7 +7,7 @@
     "dev": "nodemon lib/index.js --exec babel-node",
     "build": "babel lib -d dist",
     "start": "node index.js",
-    "doc": "apidoc -i lib/ -o docs/ && cd docs && live-server",
+    "doc": "apidoc -i lib/ -o docs/",
     "postdoc": "git subtree push --prefix docs origin docs"
   },
   "devDependencies": {
