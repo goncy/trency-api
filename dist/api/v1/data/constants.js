@@ -23,7 +23,6 @@ var API_HEADERS = exports.API_HEADERS = {
   'Host': 'trenes.sofse.gob.ar',
   'Connection': 'keep-alive',
   'Accept': 'application/json, text/javascript, */*',
-  'Accept-Encoding': 'gzip, deflate, sdch, br',
   'Accept-Language': 'es-ES,es;q=0.8,en;q=0.6,fr;q=0.4',
   'X-Requested-With': 'XMLHttpRequest',
   'User-Agent': _randomUseragent2.default.getRandom()
