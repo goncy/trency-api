@@ -40,7 +40,7 @@ var get = function () {
                 arrivals: JSON.parse(cachedArrivals),
                 positions: JSON.parse(cachedPositions) }
             });
-            _context.next = 28;
+            _context.next = 27;
             break;
 
           case 6:
@@ -71,18 +71,17 @@ var get = function () {
             positions === 'incorrect key' ? positionsKey = (0, _keys.swapKey)(positionsKey) : (0, _cache.setCache)('positions_' + req.params.branch, positions);
 
             // Return response
-            console.log(arrivals, positions);
             res.json({
               response: {
                 arrivals: JSON.parse(arrivals),
                 positions: JSON.parse(positions)
               }
             });
-            _context.next = 28;
+            _context.next = 27;
             break;
 
-          case 25:
-            _context.prev = 25;
+          case 24:
+            _context.prev = 24;
             _context.t2 = _context['catch'](6);
 
             // Return error
@@ -91,12 +90,12 @@ var get = function () {
               detail: _context.t2
             });
 
-          case 28:
+          case 27:
           case 'end':
             return _context.stop();
         }
       }
-    }, _callee, undefined, [[6, 25]]);
+    }, _callee, undefined, [[6, 24]]);
   }));
 
   return function get(_x, _x2) {
