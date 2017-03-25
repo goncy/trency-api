@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon lib/index.js --exec babel-node",
     "build": "babel lib -d dist",
+    "prestart": "npm install",
     "start": "npm-run-all --parallel run restart",
     "run": "forever start index.js",
     "docs": "apidoc -i lib/ -o docs/ && cd docs && live-server",
