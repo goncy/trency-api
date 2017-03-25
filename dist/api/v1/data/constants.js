@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var CACHE_TIME = exports.CACHE_TIME = 15000;
+var CACHE_TIME = exports.CACHE_TIME = 30000;
 var API_URLS = exports.API_URLS = {
   arrivals: 'https://trenes.sofse.gob.ar/v2_pg/arribos/ajax_arribos.php?',
   positions: 'https://trenes.sofse.gob.ar/v2_pg/mapas/ajax_posiciones.php?'
