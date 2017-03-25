@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "nodemon lib/index.js --exec babel-node",
     "build": "babel lib -d dist",
-    "start": "node index.js",
+    "start": "npm-run-all --parallel run restart",
+    "run": "node index.js",
     "docs": "apidoc -i lib/ -o docs/ && cd docs && live-server",
-    "deploy": "yarn build && git add -A . && git commit -am 'redeploy' && git push origin master"
+    "deploy": "yarn build && git add -A . && git commit -am 'redeploy' && git push origin master",
+    "restart": "sleep 300 && killall node && yarn start"
   },
   "devDependencies": {
     "apidoc": "^0.17.5",
@@ -17,7 +19,8 @@
     "babel-polyfill": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2"
   },
   "dependencies": {
     "compression": "^1.6.2",
