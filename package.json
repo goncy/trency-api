@@ -8,7 +8,7 @@
     "build": "babel lib -d dist",
     "start": "npm run run:application | npm run run:restart",
     "run:application": "node index.js",
-    "run:restart": "sleep 300 && node restart.js && npm run run:restart",
+    "run:restart": "sleep 150 && node restart.js && npm run run:restart",
     "docs": "apidoc -i lib/ -o docs/ && cd docs && live-server",
     "deploy": "yarn build && git add -A . && git commit -am 'redeploy' && git push origin master"
   },
