@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
-var r = _requestPromise2.default.defaults({ 'proxy': 'http://111.7.174.141:8000' });
+var r = _requestPromise2.default.defaults({ 'proxy': 'http://189.41.56.237:3128' });
 
 var apiRequest = exports.apiRequest = function () {
   var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(branch, tipo, key) {
