@@ -21,6 +21,12 @@ var API_URLS = exports.API_URLS = {
 var API_HEADERS = exports.API_HEADERS = {
   'Referer': 'https://trenes.sofse.gob.ar',
   'Host': 'trenes.sofse.gob.ar',
-  'User-Agent': _randomUseragent2.default.getRandom()
+  'Connection': 'keep-alive',
+  'Accept': 'application/json, text/javascript, */*',
+  'Accept-Language': 'es-ES,es;q=0.8,en;q=0.6,fr;q=0.4',
+  'X-Requested-With': 'XMLHttpRequest',
+  'User-Agent': _randomUseragent2.default.getRandom(),
+  'X-Forwarded-For': (0, _methods.randomIp)(),
+  'Referrer-Policy': 'no-referrer-when-downgrade'
 };
 var KEYS = exports.KEYS = ['NRVQjcjTUF0I30EVFBDTqdWp%23', 'v%23v%23QTUNWp%23MpWR0wkj%23RhHTqVUM'];
