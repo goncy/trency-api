@@ -25,6 +25,7 @@ var API_HEADERS = exports.API_HEADERS = {
   'Accept': 'application/json, text/javascript, */*',
   'Accept-Language': 'es-ES,es;q=0.8,en;q=0.6,fr;q=0.4',
   'X-Requested-With': 'XMLHttpRequest',
-  'User-Agent': _randomUseragent2.default.getRandom()
+  'User-Agent': _randomUseragent2.default.getRandom(),
+  'X-Forwarded-For': (0, _methods.randomIp)()
 };
 var KEYS = exports.KEYS = ['NRVQjcjTUF0I30EVFBDTqdWp%23', 'v%23v%23QTUNWp%23MpWR0wkj%23RhHTqVUM'];

@@ -6,11 +6,9 @@
   "scripts": {
     "dev": "nodemon lib/index.js --exec babel-node",
     "build": "babel lib -d dist",
-    "start": "npm run run | npm run restart",
-    "run": "node index.js",
+    "start": "node index.js",
     "docs": "apidoc -i lib/ -o docs/ && cd docs && live-server",
-    "deploy": "yarn build && git add -A . && git commit -am 'redeploy' && git push origin master",
-    "restart": "sleep 300 && node restart.js && yarn start"
+    "deploy": "yarn build && git add -A . && git commit -am 'redeploy' && git push origin master"
   },
   "devDependencies": {
     "apidoc": "^0.17.5",
