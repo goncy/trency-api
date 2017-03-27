@@ -87,7 +87,7 @@ var get = function () {
             _context.t2 = _context['catch'](6);
 
             // Return error
-            if (_error.bannedError) (0, _api.restartServer)();
+            if ((0, _error.bannedError)(_context.t2)) (0, _api.restartServer)();
             res.status(500).send({
               error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde',
               detail: _context.t2
