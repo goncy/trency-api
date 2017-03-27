@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.apiRequest = undefined;
+exports.restartServer = exports.apiRequest = undefined;
 
 var _requestPromise = require('request-promise');
 
@@ -46,8 +46,8 @@ var apiRequest = exports.apiRequest = function () {
   };
 }();
 
-/* export const restartServer = request({
+var restartServer = exports.restartServer = (0, _requestPromise2.default)({
   url: 'https://api.heroku.com/apps/trenesargentinosapi/dynos',
   method: 'DELETE',
-  headers: RESTART_HEADERS
-}) */
+  headers: _constants.RESTART_HEADERS
+});
