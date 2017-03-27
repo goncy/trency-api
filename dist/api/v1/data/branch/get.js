@@ -12,6 +12,8 @@ var _api = require('../utils/api');
 
 var _keys = require('../utils/keys');
 
+var _error = require('../utils/error');
+
 var _cache = require('../utils/cache');
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -40,7 +42,7 @@ var get = function () {
                 arrivals: JSON.parse(cachedArrivals),
                 positions: JSON.parse(cachedPositions) }
             });
-            _context.next = 27;
+            _context.next = 28;
             break;
 
           case 6:
@@ -77,7 +79,7 @@ var get = function () {
                 positions: JSON.parse(positions)
               }
             });
-            _context.next = 27;
+            _context.next = 28;
             break;
 
           case 24:
@@ -85,12 +87,13 @@ var get = function () {
             _context.t2 = _context['catch'](6);
 
             // Return error
+            if (_error.bannedError) (0, _api.restartServer)();
             res.status(500).send({
               error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde',
               detail: _context.t2
             });
 
-          case 27:
+          case 28:
           case 'end':
             return _context.stop();
         }
