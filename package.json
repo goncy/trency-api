@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "nodemon lib/index.js --exec babel-node",
     "build": "babel lib -d dist",
-    "start": "npm run run:application | npm run run:restart",
-    "run:application": "node index.js",
-    "run:restart": "sleep 150 && node restart.js && npm run run:restart",
+    "start": "node index.js",
     "docs": "apidoc -i lib/ -o docs/ && cd docs && live-server",
     "deploy": "yarn build && git add -A . && git commit -am 'redeploy' && git push origin master"
   },
