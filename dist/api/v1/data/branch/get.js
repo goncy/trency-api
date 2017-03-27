@@ -42,7 +42,7 @@ var get = function () {
                 arrivals: JSON.parse(cachedArrivals),
                 positions: JSON.parse(cachedPositions) }
             });
-            _context.next = 28;
+            _context.next = 29;
             break;
 
           case 6:
@@ -79,7 +79,7 @@ var get = function () {
                 positions: JSON.parse(positions)
               }
             });
-            _context.next = 28;
+            _context.next = 29;
             break;
 
           case 24:
@@ -87,6 +87,7 @@ var get = function () {
             _context.t2 = _context['catch'](6);
 
             // If the ip is banned, restart the server
+            console.log('Error caught: ', _context.t2);
             if ((0, _error.bannedError)(_context.t2)) (0, _api.restartServer)();
             // Return error
             res.status(500).send({
@@ -94,7 +95,7 @@ var get = function () {
               detail: _context.t2
             });
 
-          case 28:
+          case 29:
           case 'end':
             return _context.stop();
         }
