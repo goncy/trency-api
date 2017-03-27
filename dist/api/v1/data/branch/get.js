@@ -86,8 +86,9 @@ var get = function () {
             _context.prev = 24;
             _context.t2 = _context['catch'](6);
 
-            // Return error
+            // If the ip is banned, restart the server
             if ((0, _error.bannedError)(_context.t2)) (0, _api.restartServer)();
+            // Return error
             res.status(500).send({
               error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde',
               detail: _context.t2
