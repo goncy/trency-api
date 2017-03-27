@@ -42,7 +42,7 @@ var get = function () {
                 arrivals: JSON.parse(cachedArrivals),
                 positions: JSON.parse(cachedPositions) }
             });
-            _context.next = 27;
+            _context.next = 28;
             break;
 
           case 6:
@@ -79,7 +79,7 @@ var get = function () {
                 positions: JSON.parse(positions)
               }
             });
-            _context.next = 27;
+            _context.next = 28;
             break;
 
           case 24:
@@ -87,13 +87,13 @@ var get = function () {
             _context.t2 = _context['catch'](6);
 
             // Return error
-            // if (bannedError(error)) restartServer()
+            if ((0, _error.bannedError)(_context.t2)) (0, _api.restartServer)();
             res.status(500).send({
               error: 'Hubo un problema obteniendo las posiciones y horarios, por favor, intente nuevamente mas tarde',
               detail: _context.t2
             });
 
-          case 27:
+          case 28:
           case 'end':
             return _context.stop();
         }
