@@ -46,8 +46,10 @@ var apiRequest = exports.apiRequest = function () {
   };
 }();
 
-var restartServer = exports.restartServer = (0, _requestPromise2.default)({
-  url: 'https://api.heroku.com/apps/trenesargentinosapi/dynos',
-  method: 'DELETE',
-  headers: _constants.RESTART_HEADERS
-});
+var restartServer = exports.restartServer = function restartServer() {
+  return (0, _requestPromise2.default)({
+    url: 'https://api.heroku.com/apps/trenesargentinosapi/dynos',
+    method: 'DELETE',
+    headers: _constants.RESTART_HEADERS
+  });
+};
