@@ -9,3 +9,5 @@ Documentación:
 
 Documentación online:
 `https://goncy.github.io/trenesArgentinosAPI/index.html`
+
+Nota: Debido a que SOFSE bloquea los pedidos desde Heroku, actualmente esta API funciona solo de manera local
