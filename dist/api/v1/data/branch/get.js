@@ -20,7 +20,7 @@ var positionsKey = _constants.KEYS[0];
 var arrivalsKey = _constants.KEYS[1];
 
 var get = function () {
-  var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(req, res) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
     var cachedArrivals, cachedPositions, _ref2, _ref3, arrivals, positions;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
