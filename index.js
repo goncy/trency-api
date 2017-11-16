@@ -1,2 +1,1 @@
-require("babel-polyfill")
-require("./dist/index.js")
+require("./lib/index.js")
