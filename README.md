@@ -1,17 +1,17 @@
 # Trency API
 API para trenes argentinos
 
-Instalación:
-`yarn`
+## Instalación:
+```yarn```
 
-Documentación:
-`yarn docs`
+## Documentación:
+```yarn docs```
 
-Documentación online:
-`https://goncy.github.io/trency-api/index.html`
+## Documentación online:
+```https://goncy.github.io/trency-api/index.html```
 
-Si queres tu propio endpoint con esta API:
+## Cliente:
+```https://github.com/goncy/trency```
+
+### Si queres tu propio endpoint con esta API:
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/goncy/trency-api)
-
-Cliente:
-https://github.com/goncy/trency
