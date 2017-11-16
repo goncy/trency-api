@@ -1,4 +1,4 @@
-# trenesArgentinosAPI
+# Trency API
 Api para trenes argentinos
 
 Instalación:
@@ -8,6 +8,7 @@ Documentación:
 `npm run docs`
 
 Documentación online:
-`https://goncy.github.io/trenesArgentinosAPI/index.html`
+`https://goncy.github.io/trency-api/index.html`
 
-Nota: Debido a que SOFSE bloquea los pedidos desde Heroku, actualmente esta API funciona solo de manera local (recordar de cambiar la url en el archivo de constants)
+Si queres tu propio endpoint con esta API:
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/goncy/trency-api)

@@ -3,5 +3,5 @@
   "version": "1.1.0",
   "description": "API para conocer la ubicación y horarios de los trenes en Buenos Aires, Argentina",
   "title": "Trency - Donde está el tren?",
-  "url" : "http://trenesargentinosapi.herokuapp.com"
+  "url" : "http://apiprojecturl.now.sh"
 }
