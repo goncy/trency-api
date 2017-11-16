@@ -8,7 +8,7 @@ API para trenes argentinos
 ```yarn docs```
 
 ## Documentación online:
-```https://goncy.github.io/trency-api/index.html```
+https://goncy.github.io/trency-api/index.html
 
 ## Cliente:
 https://github.com/goncy/trency
