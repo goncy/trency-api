@@ -2,10 +2,10 @@
 API para trenes argentinos
 
 Instalación:
-`npm install`
+`yarn`
 
 Documentación:
-`npm run docs`
+`yarn docs`
 
 Documentación online:
 `https://goncy.github.io/trency-api/index.html`
