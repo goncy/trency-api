@@ -1,5 +1,5 @@
 # Trency API
-Api para trenes argentinos
+API para trenes argentinos
 
 Instalación:
 `npm install`
