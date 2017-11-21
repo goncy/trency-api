@@ -29,6 +29,7 @@
     "express": "^4.14.0",
     "helmet": "^3.4.0",
     "memory-cache": "^0.1.6",
+    "now-logs": "^0.0.7",
     "random-useragent": "^0.3.1",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
