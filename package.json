@@ -7,7 +7,8 @@
     "dev": "nodemon lib/index.js",
     "start": "node lib/index.js",
     "docs": "apidoc -i lib/ -o docs/ && cd docs && live-server",
-    "deploy": "yarn build && git add -A . && git commit -am 'redeploy' && git push origin master"
+    "deploy": "now deploy -A ./now.json",
+    "postdeploy": "now alias"
   },
   "devDependencies": {
     "apidoc": "^0.17.5",
