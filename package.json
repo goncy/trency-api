@@ -25,9 +25,11 @@
     "prettier": "^1.8.2"
   },
   "dependencies": {
+    "apollo-server-express": "^2.5.0",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
+    "graphql": "^14.3.0",
     "helmet": "^3.4.0",
     "memory-cache": "^0.1.6",
     "now-logs": "^0.0.7",
