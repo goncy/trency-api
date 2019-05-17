@@ -7,8 +7,11 @@ API para trenes argentinos
 ## Documentación:
 ```yarn docs```
 
-## Documentación online:
+## Documentación online de la API REST:
 https://goncy.github.io/trency-api/index.html
+
+## Api GraphQL
+Corriendo en el path `/graphql`, tiene su propia documentación con `graphql-yoga`
 
 ## Cliente:
 https://github.com/goncy/trency
