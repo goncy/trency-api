@@ -1,4 +1,6 @@
 {
   "alias": "trency-api",
-  "name": "trency-api"
+  "name": "trency-api",
+  "version": 1,
+  "public": true
 }

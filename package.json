@@ -7,7 +7,7 @@
     "dev": "nodemon lib/index.js",
     "start": "node lib/index.js",
     "docs": "apidoc -i lib/ -o docs/ && cd docs && live-server",
-    "deploy": "now deploy -A ./now.json",
+    "deploy": "now deploy --local-config ./now.json",
     "postdeploy": "now alias"
   },
   "devDependencies": {
@@ -33,7 +33,6 @@
     "helmet": "^3.4.0",
     "lodash.merge": "^4.6.1",
     "memory-cache": "^0.1.6",
-    "now-logs": "^0.0.7",
     "random-useragent": "^0.3.1",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
