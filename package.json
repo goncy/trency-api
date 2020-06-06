@@ -25,7 +25,7 @@
     "prettier": "^1.8.2"
   },
   "dependencies": {
-    "apollo-server-express": "^2.5.0",
+    "apollo-server-express": "^2.14.2",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
